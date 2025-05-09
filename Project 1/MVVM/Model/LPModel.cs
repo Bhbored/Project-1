@@ -18,5 +18,6 @@ namespace Project_1.MVVM.Model
         public string? Products { get => products; set => products = value; }
         public double? Price { get => price; set => price = value; }
         public int? Quantity { get => quantity; set => quantity = value; }
+        public string? Image { get; set; }
     }
 }

@@ -5,10 +5,13 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:converters="clr-namespace:Project_1.MVVM.Convertors"
              NavigationPage.HasNavigationBar="False"
+             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:pulltoRefresh="clr-namespace:Syncfusion.Maui.PullToRefresh;assembly=Syncfusion.Maui.PullToRefresh"
              BackgroundColor="#7e25fa">
     <ContentPage.Resources>
         <converters:ObservableCollectionConvertor x:Key="convertor" />
     </ContentPage.Resources>
+
     <Grid RowDefinitions=".1*,.1*,*">
 
         <!--#region NavigationBar -->
@@ -25,6 +28,9 @@
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer   Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
             </Label>
             <BoxView WidthRequest="4"
                      HeightRequest="70"
@@ -40,7 +46,9 @@
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center">
-
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer   Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
             </Label>
             <BoxView WidthRequest="4"
                      HeightRequest="70"
@@ -55,7 +63,9 @@
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center">
-
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer   Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
             </Label>
             <BoxView WidthRequest="4"
                      HeightRequest="70"
@@ -70,7 +80,9 @@
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center">
-
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer   Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
             </Label>
             <BoxView WidthRequest="4"
                      HeightRequest="70"
@@ -85,10 +97,12 @@
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center">
-
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer   Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
             </Label>
             <HorizontalStackLayout  Spacing="0" Margin="0,70,0,0">
-                <BoxView HeightRequest="4" WidthRequest="500" BackgroundColor="cyan"/>
+                <BoxView HeightRequest="4" WidthRequest="420" BackgroundColor="cyan"/>
             </HorizontalStackLayout>
         </Grid>
 
@@ -112,10 +126,12 @@
                                ItemsSource="{Binding Dairy}"
                                ItemSize="140"
                                Grid.Row="2"
-                               ItemSpacing="0,5,0,0"
+                               ItemSpacing="0,15,0,0"
                                SelectionMode="Multiple"
                                SelectionGesture="Tap"
                                SelectionBackground="#FFF8E1"
+                               AutoFitMode="DynamicHeight"
+                               ScrollBarVisibility="Always"
                                >
             <syncfusion:SfListView.ItemTemplate>
                 <DataTemplate>
@@ -124,7 +140,6 @@
                             Padding="10"
                             BackgroundColor="#f7a1ef"
                             Margin="10,0,10,0"
-                            HeightRequest="120"
                             StrokeShape="RoundRectangle 25"
                             >
 
@@ -133,18 +148,21 @@
                               RowDefinitions="Auto,Auto,Auto">
 
                             <Frame Grid.Column="0" Grid.RowSpan="3"
+                                   HasShadow="True"
                                    CornerRadius="8"
                                    BackgroundColor="#B3E5FC"
                                    HeightRequest="70"
                                    WidthRequest="70"
                                    VerticalOptions="Center"
                                    BorderColor="Aqua">
-                                <Image Source="placeholder_image.png"
-                                       Aspect="AspectFill"/>
+                                <Image Source="{Binding Image}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="70"
+                                       WidthRequest="70"/>
                             </Frame>
 
                             <Label Grid.Column="1" Grid.Row="2"
-                                   Text="{Binding Price, Converter={StaticResource convertor}, StringFormat='${0:F2}'}"
+                                   Text="{Binding Price, Converter={StaticResource convertor}, StringFormat='{0:0.##}'}"
                                    TextColor="#00796B"
                                    FontSize="16"
                                    FontAttributes="Bold"
@@ -153,15 +171,18 @@
                             <Label Grid.Column="2" Grid.Row="1"
                                    Text="{Binding Products}"
                                    TextColor="#00897B"
-                                   FontSize="14"
-                                   Margin="10,2,0,0"/>
+                                   FontAttributes="Bold"
+                                   FontSize="21"
+                                   Margin="10,2,0,0"
+                                   HorizontalOptions="End"/>
 
                             <Label Grid.Column="3" Grid.Row="2"
                                    Text="{Binding Quantity, Converter={StaticResource convertor}}"
                                    TextColor="#00695C"
-                                   FontSize="13"
+                                   FontSize="15"
                                    FontAttributes="Italic"
-                                   Margin="10,5,0,0"/>
+                                   Margin="10,5,0,0"
+                                   HorizontalOptions="End"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
@@ -170,4 +191,5 @@
         <!--#endregion-->
 
     </Grid>
+
 </ContentPage>

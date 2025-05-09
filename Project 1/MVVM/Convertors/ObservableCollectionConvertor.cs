@@ -16,7 +16,8 @@ namespace Project_1.MVVM.Convertors
             if (value is double price)
             //equavalent to var price = (double)value; --_--
             {
-                return price.ToString();
+                string temp1 = $"{price:C}";
+                return temp1;
             }
 
             if (value is int quantity)
