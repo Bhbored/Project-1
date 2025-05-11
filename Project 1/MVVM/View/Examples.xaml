@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_1.MVVM.View.Examples"
+             Title="Examples"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{DynamicResource LightBackground}">
+
+
+    <Grid RowDefinitions="auto,auto,*,auto"
+          RowSpacing="0"
+          Padding="0">
+
+        <!-- Category Navigation Buttons -->
+        <ScrollView Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    HorizontalScrollBarVisibility="Never">
+            <StackLayout Orientation="Horizontal"
+                         Spacing="10"
+                         Padding="8,8">
+                <Button Text="Diary"
+                        Style="{StaticResource CategoryButton}">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Button.GestureRecognizers>
+                </Button>
+                <Button Text="Bakery"
+                        Style="{StaticResource CategoryButton}">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Button.GestureRecognizers>
+                </Button>
+                <Button Text="Fruits"
+                        Style="{StaticResource CategoryButton}"
+                        >
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Button.GestureRecognizers>
+                </Button>
+                <Button Text="Meat"
+                        Style="{StaticResource CategoryButton}">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Button.GestureRecognizers>
+                </Button>
+                <Button Text="Snacks"
+                        Style="{StaticResource CategoryButton}">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Button.GestureRecognizers>
+                </Button>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Search Bar -->
+        <SearchBar Grid.Row="1"
+                   x:Name="searchBar"
+                   Style="{StaticResource SearchBar}"
+                   Placeholder="Search products..."
+                   SearchCommand="{Binding SearchCommand}"
+                   TextChanged="SearchBar_TextChanged"/>
+
+        <!-- Product List -->
+        <CollectionView Grid.Row="2"
+                        Style="{StaticResource InventoryCollectionView}"
+                        ItemsSource="{Binding Dairy}"
+                        x:Name="CollectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Style="{StaticResource InventoryCard}">
+                        <Grid RowDefinitions="140,auto,auto,auto">
+                            <!-- Product Image -->
+                            <Grid Style="{StaticResource ProductImageContainer}">
+                                <Image Source="{Binding Image}"
+                                       Aspect="AspectFill"
+                                       >
+                                    <Image.Clip>
+                                        <RoundRectangleGeometry CornerRadius="16,16,0,0"/>
+                                    </Image.Clip>
+                                </Image>
+                            </Grid>
+
+                            <!-- Product Name -->
+                            <Label Grid.Row="1"
+                                   Style="{StaticResource ProductNameLabel}"
+                                   Text="{Binding Products}"/>
+
+                            <!-- Bottom row -->
+                            <Grid Grid.Row="3" ColumnDefinitions="*,*">
+                                <Label Grid.Column="0"
+                                       Style="{StaticResource ProductStockLabel}"
+                                       Text="{Binding Quantity, Converter={StaticResource convertor}}"/>
+
+                                <Label Grid.Column="1"
+                                       Style="{StaticResource ProductPriceLabel}"
+                                       Text="{Binding Price, StringFormat='${0:0.00}'}"/>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Status Bar (optional) -->
+        <Label Grid.Row="3"
+               Text="{Binding StatusMessage}"
+               TextColor="{DynamicResource DarkText}"
+               HorizontalOptions="Center"
+               Margin="0,8"/>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="Project_1.Resources.Styles.CardStyles">
+    <Shadow x:Key="CardShadow" Brush="#000000"
+            Offset="0,4" Radius="12" Opacity="0.08"/>
+
+    <!-- Modern card container -->
+    <Style x:Key="InventoryCard" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{DynamicResource CardBackground}"/>
+        <Setter Property="BorderColor" Value="{DynamicResource CardBorder}"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <!-- More rounded -->
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="HasShadow" Value="True"/>
+        <Setter Property="Shadow" Value="{StaticResource CardShadow}"/>
+        <Setter Property="Margin" Value="12,6"/>
+        <!-- Better spacing -->
+    </Style>
+
+    <!-- Product image container -->
+    <Style x:Key="ProductImageContainer" TargetType="Grid">
+        <Setter Property="HeightRequest" Value="140"/>
+        <Setter Property="BackgroundColor" Value="#F8F9FA"/>
+        <!-- Image placeholder color -->
+    </Style>
+
+    <!-- Product name - more prominent -->
+    <Style x:Key="ProductNameLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource DarkText}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="18"/>
+        <!-- Larger -->
+        <Setter Property="Margin" Value="16,12,16,4"/>
+        <!-- Better spacing -->
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="MaxLines" Value="2"/>
+    </Style>
+
+    <!-- Category tag - new style -->
+    <Style x:Key="CategoryTagLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="Margin" Value="16,0,16,8"/>
+        <Setter Property="BackgroundColor" Value="#E6F0FF"/>
+        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+
+    <!-- Price - more emphasis -->
+    <Style x:Key="ProductPriceLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource PriceColor}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="20"/>
+        <!-- Larger -->
+        <Setter Property="Margin" Value="16,0,16,16"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+    </Style>
+
+    <!-- Stock count - subtle -->
+    <Style x:Key="ProductStockLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource StockColor}"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Margin" Value="16,0"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+</ResourceDictionary>

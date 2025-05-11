@@ -53,7 +53,7 @@ public partial class LPView : ContentPage
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
         var category = sender as Label;
-       if(category.Text == "Dairy")
+        if (category.Text == "Dairy")
         {
             listView.ItemsSource = ((LPViewModel)BindingContext).Dairy;
         }

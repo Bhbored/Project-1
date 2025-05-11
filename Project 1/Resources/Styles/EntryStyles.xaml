@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="Project_1.Resources.Styles.EntryStyles">
+    <Style x:Key="SearchBar" TargetType="SearchBar">
+        <Setter Property="BackgroundColor" Value="{DynamicResource LightBackground}"/>
+        <Setter Property="PlaceholderColor" Value="{DynamicResource DarkText}"/>
+        <Setter Property="TextColor" Value="{DynamicResource DarkText}"/>
+        <Setter Property="CancelButtonColor" Value="{DynamicResource PrimaryColor}"/>
+        <Setter Property="Margin" Value="16,8"/>
+        <Setter Property="HeightRequest" Value="40"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+</ResourceDictionary>

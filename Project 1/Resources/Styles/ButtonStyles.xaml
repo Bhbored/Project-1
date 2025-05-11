@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="Project_1.Resources.Styles.ButtonStyles">
+
+    <Style x:Key="CategoryButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}"/>
+        <Setter Property="TextColor" Value="{DynamicResource LightText}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}"/>
+                            <Setter Property="Scale" Value="1"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"/>
+                            <Setter Property="Scale" Value="0.95"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+</ResourceDictionary>

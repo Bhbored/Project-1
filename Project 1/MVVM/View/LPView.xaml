@@ -5,8 +5,6 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:converters="clr-namespace:Project_1.MVVM.Convertors"
              NavigationPage.HasNavigationBar="False"
-             xmlns:ListView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
-             xmlns:pulltoRefresh="clr-namespace:Syncfusion.Maui.PullToRefresh;assembly=Syncfusion.Maui.PullToRefresh"
              BackgroundColor="#7e25fa">
     <ContentPage.Resources>
         <converters:ObservableCollectionConvertor x:Key="convertor" />
