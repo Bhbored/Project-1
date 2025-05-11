@@ -18,6 +18,7 @@ namespace Project_1
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
             builder.ConfigureSyncfusionCore();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

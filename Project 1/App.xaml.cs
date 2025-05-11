@@ -11,6 +11,7 @@ namespace Project_1
             SyncfusionLicenseProvider.RegisterLicense("MzgyMDY5OEAzMjM5MmUzMDJlMzAzYjMyMzkzYlRhcVAvMFNyaVBrTW5pdlBYSElRcVR0eVNia1BsVkpEeENvNlhVVDREN1E9");
         }
 
+
         protected override Window CreateWindow(IActivationState? activationState)
         {
             return new Window(new NavigationPage(new LPView()));
